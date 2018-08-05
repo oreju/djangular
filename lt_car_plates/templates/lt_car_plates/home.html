@@ -1,0 +1,21 @@
+{% load staticfiles %}
+
+<html>
+    <body data-ng-app="lt_car_plates.demo">
+
+        {% verbatim %}
+        <div data-ng-controller="LtCarPlatesController">
+            <ul>
+                <li ng-repeat="carplate in data">{{ carplate.plate_number}}</li>
+            </ul>
+            <input type="text" ng-model="new_plate_number"/>
+            <button ng-click="add(data, new_plate_number)">+</button>
+        </div>
+
+        {% endverbatim %}
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+        <script src="{% static "lt_car_plates/lt_car_plates.js" %}"></script>
+
+    </body>
+</html>
