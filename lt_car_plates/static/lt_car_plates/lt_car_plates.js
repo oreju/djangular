@@ -2,11 +2,11 @@
     'use strict';
     angular.module('lt_car_plates.demo', [])
         .controller('LtCarPlatesController', [ '$scope', '$http', LtCarPlatesController ]);
-    console.log(carplates);
+    // console.log(carplates);
     function LtCarPlatesController($scope, $http) {
         $scope.add = function (carplates, plate_number) {
 
-            console.log(carplates);
+            // console.log(carplates);
             var new_plate_number = {
                 plate_number: plate_number,
                 car_brand: 'Nissan'
