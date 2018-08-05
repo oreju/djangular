@@ -1,12 +1,18 @@
 {% load staticfiles %}
 
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css"
+              href="{% static "lt_car_plates/css/lt_car_plates.css" %}"/>
+    </head>
     <body data-ng-app="lt_car_plates.demo">
 
         {% verbatim %}
         <div data-ng-controller="LtCarPlatesController">
             <ul>
-                <li ng-repeat="carplate in data">{{ carplate.plate_number}}</li>
+                <span ng-repeat="carplate in data">
+                    <lt-car-plates></lt-car-plates>
+                </span>
             </ul>
             <input type="text" ng-model="new_plate_number"/>
             <button ng-click="add(data, new_plate_number)">+</button>
@@ -16,6 +22,7 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
         <script src="{% static "lt_car_plates/lt_car_plates.js" %}"></script>
+        <script src="{% static "lt_car_plates/lt_car_plates.directive.js" %}"></script>
 
     </body>
 </html>
