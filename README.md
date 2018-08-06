@@ -10,5 +10,5 @@
 3. Install Django:<br />
     pip install django
 
-4. Go to lt_car_plates project and run manage.py:<br />
+4. Go to project and run manage.py:<br />
     python manage.py runserver
