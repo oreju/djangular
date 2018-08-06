@@ -16,13 +16,13 @@
                         <lt-car-plates></lt-car-plates>
                     </span>
                 </ul>
-                <input type="text" name="new_plate_number" ng-model="new_plate_number" placeholder="Enter plate number..."/>
-                <input type="text" ng-model="new_car_brand" placeholder="Enter car brand..."/>
-                <input type="text" ng-model="new_car_model" placeholder="Enter car model..."/>
+                <input type="text" ng-model="new_plate_number" placeholder="Enter plate number..."/>
+                <input type="text" ng-model="new_car_brand" placeholder="Enter car's brand..."/>
+                <input type="text" ng-model="new_car_model" placeholder="Enter car's model..."/>
+                <input type="text" ng-model="new_owner_name" placeholder="Enter owner's name..."/>
 
 
-
-                <button ng-click="add(data, new_plate_number, new_car_brand, new_car_model)" ng-disabled="!new_plate_number || !new_car_brand || !new_car_model">+</button>
+                <button ng-click="add(data, new_plate_number, new_car_brand, new_car_model, new_owner_name)" ng-disabled="!new_plate_number || !new_car_brand || !new_car_model || !new_owner_name">+</button>
             </div>
         </div>
         {% endverbatim %}

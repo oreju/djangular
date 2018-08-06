@@ -4,6 +4,9 @@
         <span class="description">{{ carplate.car_brand }}</span>
         <span class="description">{{ carplate.car_model }}</span>
     </li>
+    <li>
+        <span class="description">{{ carplate.owner_name }}</span>
+    </li>
 </div>
 
 <div class="car_plate" ng-show="edit"
@@ -20,6 +23,9 @@
     <textarea ng-model="carplate.car_model"
               ng-change="update()"
               placeholder="Enter car model..."></textarea>
+    <textarea ng-model="carplate.owner_name"
+              ng-change="update()"
+              placeholder="Enter owner name..."></textarea>
 
     <button ng-click="edit=false">Close</button>
     <button ng-click="delete()">Delete Car Plate</button>

@@ -4,12 +4,13 @@
         .controller('LtCarPlatesController', [ '$scope', '$http', '$window', LtCarPlatesController ]);
 
     function LtCarPlatesController($scope, $http, $window) {
-        $scope.add = function (carplates, plate_number, car_brand, car_model) {
+        $scope.add = function (carplates, plate_number, car_brand, car_model, owner_name) {
 
             var new_car = {
                 plate_number: plate_number,
                 car_brand: car_brand,
-                car_model: car_model
+                car_model: car_model,
+                owner_name: owner_name
             };
 
             $http.post('/lt_car_plates/carplates/', new_car)
