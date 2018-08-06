@@ -49,3 +49,15 @@ ul {
 .flex button {
     flex-basis: auto;
 }
+
+.car_plate button,
+.car_plate input,
+.car_plate textarea {
+    color: #404040;
+    margin: 2px 0px;
+}
+
+.car_plate textarea {
+    width: 100%;
+    resize: vertical;
+}

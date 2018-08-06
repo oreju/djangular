@@ -8,16 +8,23 @@
     <body data-ng-app="lt_car_plates.demo">
 
         {% verbatim %}
-        <div data-ng-controller="LtCarPlatesController">
-            <ul>
-                <span ng-repeat="carplate in data">
-                    <lt-car-plates></lt-car-plates>
-                </span>
-            </ul>
-            <input type="text" ng-model="new_plate_number"/>
-            <button ng-click="add(data, new_plate_number)">+</button>
-        </div>
+        <div class="list">
+            <h3>Lithuanian Cars Plate Numbers</h3>
+            <div data-ng-controller="LtCarPlatesController">
+                <ul>
+                    <span ng-repeat="carplate in data">
+                        <lt-car-plates></lt-car-plates>
+                    </span>
+                </ul>
+                <input type="text" name="new_plate_number" ng-model="new_plate_number" placeholder="Enter plate number..."/>
+                <input type="text" ng-model="new_car_brand" placeholder="Enter car brand..."/>
+                <input type="text" ng-model="new_car_model" placeholder="Enter car model..."/>
 
+
+
+                <button ng-click="add(data, new_plate_number, new_car_brand, new_car_model)" ng-disabled="!new_plate_number || !new_car_brand || !new_car_model">+</button>
+            </div>
+        </div>
         {% endverbatim %}
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>

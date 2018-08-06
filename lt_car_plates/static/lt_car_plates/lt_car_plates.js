@@ -1,27 +1,36 @@
 (function () {
     'use strict';
     angular.module('lt_car_plates.demo', [])
-        .controller('LtCarPlatesController', [ '$scope', '$http', LtCarPlatesController ]);
-    // console.log(carplates);
-    function LtCarPlatesController($scope, $http) {
-        $scope.add = function (carplates, plate_number) {
+        .controller('LtCarPlatesController', [ '$scope', '$http', '$window', LtCarPlatesController ]);
 
-            // console.log(carplates);
-            var new_plate_number = {
+    function LtCarPlatesController($scope, $http, $window) {
+        $scope.add = function (carplates, plate_number, car_brand, car_model) {
+
+            var new_car = {
                 plate_number: plate_number,
-                car_brand: 'Nissan'
+                car_brand: car_brand,
+                car_model: car_model
             };
-            $http.post('/lt_car_plates/carplates/', new_plate_number)
+
+            $http.post('/lt_car_plates/carplates/', new_car)
                 .then(function (response) {
                     carplates.push(response.data);
+                },
+                function (response) {
+
+                    if('plate_number' in response.data) {
+                        $window.alert(JSON.stringify(response.data['plate_number'][0]));
+                    }
+                    else {
+                        $window.alert(JSON.stringify(response.data));
+                    }
                 });
         };
 
         $scope.data = [];
         $http.get('/lt_car_plates/carplates/').then(
             function (response) {
-                $scope.data = response.data;
-                console.log(response.data)
+                $scope.data = angular.fromJson(response.data);
             }
         )
 

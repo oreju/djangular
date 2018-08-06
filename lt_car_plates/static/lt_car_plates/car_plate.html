@@ -1,6 +1,26 @@
-<div class="car_plate">
+<div class="car_plate" ng-hide="edit" ng-click="edit=true">
     <li>
         <h4>{{ carplate.plate_number }}</h4>
         <span class="description">{{ carplate.car_brand }}</span>
+        <span class="description">{{ carplate.car_model }}</span>
     </li>
+</div>
+
+<div class="car_plate" ng-show="edit"
+     ng-model-options="modelOptions">
+    <div class="flex">
+        <label><strong>Plate Number: &nbsp;</strong></label>
+        <input type="text"
+               ng-model="carplate.plate_number"
+               ng-change="update()"/>
+    </div>
+    <textarea ng-model="carplate.car_brand"
+              ng-change="update()"
+              placeholder="Enter car brand..."></textarea>
+    <textarea ng-model="carplate.car_model"
+              ng-change="update()"
+              placeholder="Enter car model..."></textarea>
+
+    <button ng-click="edit=false">Close</button>
+    <button ng-click="delete()">Delete Car Plate</button>
 </div>
